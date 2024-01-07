@@ -15,6 +15,7 @@ public class studentWebController {
     @Autowired
     StudentRepository studentRepository;
 
+    // Update to the Student Controller
     @GetMapping("/students")
     public String displayStudents(Model model){
         List<Student> students = studentRepository.findAll();
