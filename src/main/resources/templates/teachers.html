@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-padding-remove">
+        <h1 class="uk-heading-medium uk-margin-remove">Teachers</h1>
+    </div>
+    <nav aria-label="Breadcrumb">
+        <ul class="uk-breadcrumb uk-margin-remove">
+            <li><a href="/">Home</a></li>
+            <li class="uk-disabled"><a>Teachers</a></li>
+        </ul>
+    </nav>
+    <h1 class="uk-heading-divider uk-margin-remove"></h1>
+    <table class="uk-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>School Name</th>
+                <th>Location</th>
+                <th>Start Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="teacher : ${teachers}">
+                <td th:text="${teacher.id}"></td>
+                <td th:text="${teacher.firstName}"></td>
+                <td th:text="${teacher.lastName}"></td>
+                <td th:text="${teacher.school.schoolName}"></td>
+                <td th:text="${teacher.school.schoolState}"></td>
+                <td th:text="${teacher.startDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

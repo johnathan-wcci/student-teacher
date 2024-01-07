@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Schools</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-padding-remove">
+        <h1 class="uk-heading-medium uk-margin-remove">Schools</h1>
+        <button class="uk-button uk-button-primary uk-align-right uk-margin-remove" type="button" uk-toggle="target: #modal-example">Add</button>
+    </div>
+    <nav aria-label="Breadcrumb">
+        <ul class="uk-breadcrumb uk-margin-remove">
+            <li><a href="/">Home</a></li>
+            <li class="uk-disabled"><a>Schools</a></li>
+        </ul>
+    </nav>
+    <h1 class="uk-heading-divider uk-margin-remove"></h1>
+    <table class="uk-table">
+        <thead>
+            <tr>
+                <th>School ID</th>
+                <th>School Name</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="school : ${schools}">
+                <td th:text="${school.id}"></td>
+                <td th:text="${school.schoolName}"></td>
+                <td th:text="${school.schoolState}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Add A School</h2>
+            <form id="schoolForm" class="uk-form-stacked" th:action="@{/schools}" method="post" th:object="${school}">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">School Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="schoolName" id="schoolName" type="text" placeholder="" th:field="*{schoolName}"/>
+                    </div>
+                    <label class="uk-form-label" for="form-stacked-text">School State</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="schoolState" id="schoolState" type="text" placeholder="" th:field="*{schoolState}"/>
+                    </div>
+                </div>
+                <p class="uk-text-right">
+                    <input class="uk-button uk-button-primary" type="submit" value="Save" /> 
+                    <input class="uk-button uk-button-danger" type="reset" value="Reset" />
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

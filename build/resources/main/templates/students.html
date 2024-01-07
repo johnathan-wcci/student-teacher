@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
+    <script src="../static/css/main.css"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <script th:src="@{/js/createStudent.js}"></script>
+</head>
+<body>
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-padding-remove">
+        <h1 class="uk-heading-medium uk-margin-remove">Students</h1>
+        <button class="uk-button uk-button-primary uk-align-right uk-margin-remove" type="button" uk-toggle="target: #modal-example">Add</button>
+    </div>
+    <nav aria-label="Breadcrumb">
+        <ul class="uk-breadcrumb uk-margin-remove">
+            <li><a href="/">Home</a></li>
+            <li class="uk-disabled"><a>Students</a></li>
+        </ul>
+    </nav>
+    <h1 class="uk-heading-divider uk-margin-remove"></h1>
+    <table class="uk-table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Graduation Date</th>
+                <th>Age</th>
+                <th>GPA</th>
+                <th>School Name</th>
+                <th>Location</th>
+                <th>Primary Teacher</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.graduationDate}"></td>
+                <td th:text="${student.age}"></td>
+                <td th:text="${student.gpa}"></td>
+                <td th:text="${student.school.schoolName}"></td>
+                <td th:text="${student.school.schoolState}"></td>
+                <td th:text="|${student.teacher.firstName} ${student.teacher.lastName}|"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Add A New Student</h2>
+            <form id="studentForm" class="uk-form-stacked" onsubmit="submitForm(event)">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">First Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="firstName" id="firstName" type="text" placeholder="" />
+                    </div>
+                    <label class="uk-form-label" for="form-stacked-text">Last Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="lastName" id="lastName" type="text" placeholder=""/>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Primary Teacher</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="teacherId" id="primaryTeacherId" type="text" placeholder="Primary Teacher ID"/>
+                    </div>
+                    <label class="uk-form-label" for="form-stacked-text">Graduation Date</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="graduationDate" id="graduationDate" type="text" value="2024"/>
+                    </div>
+                </div>
+                <p class="uk-text-right">
+                    <input class="uk-button uk-button-primary" type="submit" value="Save" /> 
+                    <input class="uk-button uk-button-danger" type="reset" value="Reset" />
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
