@@ -14,7 +14,7 @@ INSERT INTO teacher (id, first_name, last_name, start_date, school_id) VALUES (2
 
 INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (1, 'Peter', 'Parker', 18, 3.7, 2024, 1, 1);
 INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (2, 'Tony', 'Stark', 54, 4.0, 2023, 1, 1);
-INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (3, 'Loki', 'Odinson', 1059, 2.0, 2020, 2, 2);
+INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (3, 'Loki', 'Laufeyson', 1059, 2.0, 2020, 2, 2);
 INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (4, 'Stephen', 'Strange', 61, 4.0, 2025, 2, 2);
 INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (5, 'Bruce', 'Banner', 55, 3.6, 2019, 1, 1);
 INSERT INTO student (id, first_name, last_name, age, gpa, graduation_date, school_id, teacher_id) VALUES (6, 'Natasha', 'Romanoff', 32, 3.0, 2025, 2, 2);

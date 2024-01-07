@@ -14,6 +14,7 @@ CSS-Framwork: https://getuikit.com/docs/flex
 	- com.h2database:h2
 
 ### Additional Resources:
+    - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
     - https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/howto-database-initialization.html
     - https://vladmihalcea.com/manytoone-jpa-hibernate/
     - https://spring.io/guides/gs/serving-web-content/

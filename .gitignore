@@ -1,0 +1,3 @@
+.gradle/
+settings.json
+build/tmp/compileJava

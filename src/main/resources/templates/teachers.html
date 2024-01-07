@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Teacher List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers</title>
+    <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
+    <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script th:src="@{/js/createTeacher.js}"></script>
 </head>
 <body>
     <div class="uk-flex uk-flex-between uk-flex-middle uk-padding-remove">
         <h1 class="uk-heading-medium uk-margin-remove">Teachers</h1>
+        <button class="uk-button uk-button-primary uk-align-right uk-margin-remove" type="button" uk-toggle="target: #modal-example">Add</button>
     </div>
     <nav aria-label="Breadcrumb">
         <ul class="uk-breadcrumb uk-margin-remove">
@@ -22,7 +27,7 @@
     <table class="uk-table">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Teacher ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>School Name</th>
@@ -41,5 +46,38 @@
             </tr>
         </tbody>
     </table>
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Add A Teacher</h2>
+            <form id="teacherForm" class="uk-form-stacked" onsubmit="submitForm(event)">
+                <div class="uk-margin">
+                    <label class="uk-input" for="form-stacked-text">First Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="firstName" id="firstName" type="text" placeholder="First Name">
+                    </div>
+
+                    <label class="uk-input" for="form-stacked-text">Last Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="lastName" id="lastName" type="text" placeholder="Last Name">
+                    </div>
+
+                    <label class="uk-input" for="form-stacked-text">Start Date</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="startDate" id="startDate" type="text" placeholder="Start Date">
+                    </div>
+
+                    <label class="uk-input" for="form-stacked-text">School ID</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="schoolId" id="schoolId" type="text" placeholder="School ID">
+                    </div>
+
+                    <p class="uk-text-right">
+                        <input type="submit" class="uk-button uk-button-primary" value="Save">
+                        <input type="reset" class="uk-button uk-button-danger" value="Reset">
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
